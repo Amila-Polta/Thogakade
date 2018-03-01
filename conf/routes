@@ -1,0 +1,28 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file          controllers.Assets.versioned(path="/public", file: Asset)
+
+POST        /customer/add          @com.thogakade.controllers.CustomerCotroller.add()
+POST        /customer/update        @com.thogakade.controllers.CustomerCotroller.update()
+GET         /customer/:customerId   @com.thogakade.controllers.CustomerCotroller.find(customerId:Long)
+DELETE      /customer/:customerId   @com.thogakade.controllers.CustomerCotroller.delete(customerId:Long)
+
+POST        /item/add               @com.thogakade.controllers.ItemController.add()
+POST        /item/update            @com.thogakade.controllers.ItemController.update()
+GET         /item/:itemCode         @com.thogakade.controllers.ItemController.find(itemCode:Long)
+DELETE      /item/:itemCode         @com.thogakade.controllers.ItemController.delete(itemCode:Long)
+
+POST        /order/add              @com.thogakade.controllers.OrderController.add()
+GET         /order/:orderId             @com.thogakade.controllers.OrderController.find(orderId : Long)
+POST        /order/update           @com.thogakade.controllers.OrderController.update()
+GET         /order/o/:orderId             @com.thogakade.controllers.OrderController.findWithCusNUser(orderId : Long)
+POST         /order/o             @com.thogakade.controllers.OrderController.findIncome()
+
+POST        /user/signUp          @com.thogakade.controllers.UserController.add()
+POST        /user/signIn          @com.thogakade.controllers.UserController.signIn()
+POST        /user/update          @com.thogakade.controllers.UserController.update()
+DELETE      /user/:userId     @com.thogakade.controllers.UserController.delete(userId:Long)
+GET      /user/:userId     @com.thogakade.controllers.UserController.find(userId:Long)
